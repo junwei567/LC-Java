@@ -15,7 +15,7 @@ public class NumIslands {
         }
     }
 
-    public static void BFS(int r, int c, int[][] visited, char[][] grid) {
+    public static void bfs(int r, int c, int[][] visited, char[][] grid) {
         Deque<Pair> q = new ArrayDeque<>(); // queue
         q.add(new Pair(r, c));
         visited[r][c] = 1;
@@ -40,14 +40,14 @@ public class NumIslands {
         }
     }
 
-    public int GetNumIslands(char[][] grid) {
+    public int getNumIslands(char[][] grid) {
         int islands = 0;
         int[][] visited = new int[grid.length][grid[0].length];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1' && visited[i][j] == 0) {
                     islands ++;
-                    BFS(i, j, visited, grid);
+                    bfs(i, j, visited, grid);
                 }
             }
         }
@@ -57,6 +57,6 @@ public class NumIslands {
     public static void main(String[] args) {
         char[][] array = {{'1','1','0'}, {'1','1','0'}, {'0','0','1'}};
         NumIslands numIslands = new NumIslands();
-        System.out.println(numIslands.GetNumIslands(array));
+        System.out.println(numIslands.getNumIslands(array));
     }
 }
