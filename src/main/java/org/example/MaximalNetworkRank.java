@@ -10,9 +10,9 @@ public class MaximalNetworkRank {
             networks.put(i, new HashSet<>());
         }
         // populate the hashsets in networks hashmap
-        for (int i = 0; i < roads.length; i++) {
-            networks.get(roads[i][0]).add(roads[i][1]);
-            networks.get(roads[i][1]).add(roads[i][0]);
+        for (int[] road : roads) {
+            networks.get(road[0]).add(road[1]);
+            networks.get(road[1]).add(road[0]);
         }
         // calculate the max network rank
         int maxRank = 0;
